@@ -4,5 +4,5 @@
 
 [url]: http://ironunicorn.github.io/asteroids
 
-Built with custom trigonometry calculations. Asynchronous game engine enables
+Built with custom trigonometric calculations. Asynchronous game engine enables
 continuous gaming experience.
