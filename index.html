@@ -9,13 +9,15 @@
         margin: 0px;
       }
       .front-page {
+        margin: 5px;
         height: 95vh;
-        width: 70%;
+        width: 68%;
         position: relative;
         float: left;
         border: 3px solid #0066FF;
         box-sizing: border-box;
         border-radius: 5px;
+        display: inline-flex;
       }
       .game-canvas {
         position: absolute;
@@ -25,7 +27,7 @@
       .instructions {
         float: right;
         text-align: left;
-        width: 30%;
+        width: 28%;
         font-size: 1.7em;
         font-family: sans-serif;
         color: #0066FF;
@@ -34,12 +36,12 @@
         line-height: 1.5;
       }
       button {
-        font-size: 1.3em;
+        font-size: 2em;
         font-family: sans-serif;
-        color: #0066FF;
         border-radius: 5px;
         font-weight: bold;
         cursor: pointer;
+        color: #FF6600;
       }
       .lives {
         position: absolute;
@@ -73,38 +75,46 @@
         text-align: center;
         left: 0;
         right: 0;
-        margin: 35% auto;
-        font-size: 1.7em;
+        margin: auto;
+        font-size: 2em;
         font-family: sans-serif;
         color: #0066FF;
+      }
+      .center-button {
+        margin: auto;
+        text-align: center;
+        font-size: 2em;
       }
     </style>
   </head>
 
   <body>
-    <div class="front-page hidden">
-      <div class="lives">
-        <div class="triangle" data-id="1"></div>
-        <div class="triangle" data-id="2"></div>
-        <div class="triangle" data-id="3"></div>
+    <div class="front-page">
+      <div class="center-button">
+        <button class="start-button">Play!</button>
       </div>
-      <div class="score">Score: 0</div>
-      <canvas id="game-canvas"></canvas>
+      <div class="game-stats hidden">
+        <div class="lives">
+          <div class="triangle" data-id="1"></div>
+          <div class="triangle" data-id="2"></div>
+          <div class="triangle" data-id="3"></div>
+        </div>
+        <div class="score">Score: 0</div>
+        <canvas id="game-canvas"></canvas>
+      </div>
     </div>
 
     <div class="instructions">
-      <strong>ASTRONOMETRY</strong>
+      <span style="font-size: 1.8em"><strong>ASTEROIDS</strong></span>
       <br><br>
       <strong>&#8593</strong> to accelerate
       <br>
       <strong>&#8592</strong> and <strong>&#8594</strong> to rotate
       <br>
       <strong>SPACEBAR</strong> to fire
-      <br>
-      <br>
-      <button class="start-button">Play!</button>
+
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="lib/utils.js"></script>
     <script src="lib/movingObject.js"></script>
     <script src="lib/bullet.js"></script>
@@ -118,7 +128,7 @@
     <script>
       $('.start-button').click(function () {
         this.remove();
-        $('.front-page').removeClass('hidden');
+        $('.game-stats').removeClass('hidden');
         var canvasEl = document.getElementById("game-canvas");
         var ctx = canvasEl.getContext('2d');
         var game = new Asteroids.Game();
